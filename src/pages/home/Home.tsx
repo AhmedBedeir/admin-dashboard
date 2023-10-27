@@ -10,6 +10,7 @@ import {
   chartBoxUser,
 } from "../../data";
 import BarChartBox from "../../components/barChart/BarChartBox";
+import PieChartBox from "../../components/pieChart/PieChartBox";
 function Home() {
   return (
     <div className="home">
@@ -22,7 +23,9 @@ function Home() {
       <div className="box box3">
         <BoxChart {...chartBoxProduct} />
       </div>
-      <div className="box box4">box4</div>
+      <div className="box box4">
+        <PieChartBox />
+      </div>
       <div className="box box5">
         <BoxChart {...chartBoxRevenue} />
       </div>
