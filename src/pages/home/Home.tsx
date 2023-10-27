@@ -2,11 +2,14 @@ import "./home.scss";
 import TopBox from "../../components/topBox/TopBox";
 import BoxChart from "../../components/boxChart/BoxChart";
 import {
+  barChartBoxRevenue,
+  barChartBoxVisit,
   chartBoxConversion,
   chartBoxProduct,
   chartBoxRevenue,
   chartBoxUser,
 } from "../../data";
+import BarChartBox from "../../components/barChart/BarChartBox";
 function Home() {
   return (
     <div className="home">
@@ -27,8 +30,12 @@ function Home() {
         <BoxChart {...chartBoxConversion} />
       </div>
       <div className="box box7">box7</div>
-      <div className="box box8">box8</div>
-      <div className="box box9">box9</div>
+      <div className="box box8">
+        <BarChartBox {...barChartBoxRevenue} />
+      </div>
+      <div className="box box9">
+        <BarChartBox {...barChartBoxVisit} />
+      </div>
     </div>
   );
 }
