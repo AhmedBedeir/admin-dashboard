@@ -1,0 +1,15 @@
+.MuiDataGrid-toolbarContainer{
+    flex-direction: row-reverse;
+}
+.actions{
+    display: flex;
+    align-items: center;
+    .delete{
+        cursor: pointer;
+    }
+    img{
+        width: 20px;
+        height: 20px;
+        border-radius: 0;
+    }
+}

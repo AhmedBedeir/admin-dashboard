@@ -18,13 +18,13 @@ a {
   .container {
     display: flex;
     .menuContainer {
-      width: 250px;
+      width: 220px;
       padding: 5px 20px;
       border-right: 2px solid $soft-bg;
     }
     .content{
       padding: 5px 20px;
-  width: 100%;
+      width: calc(100% - 220px);
     }
   }
 }
