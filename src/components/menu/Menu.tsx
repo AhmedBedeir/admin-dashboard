@@ -11,7 +11,7 @@ function Menu() {
             {item.listItems.map((it) => {
               return (
                 <Link to={it.url} className="listItem" key={it.id}>
-                  <img src={it.icon} alt="home" />
+                  <img src={it.icon} alt="" />
                   <span className="listItemTitle">{it.title}</span>
                 </Link>
               );

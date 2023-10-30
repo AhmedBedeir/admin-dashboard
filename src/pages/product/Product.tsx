@@ -1,7 +1,10 @@
+import Single from "../../components/single/Single"
 import "./Product.scss"
 function Product() {
   return (
-    <div>Product</div>
+    <div>
+      <Single />
+    </div>
   )
 }
 
