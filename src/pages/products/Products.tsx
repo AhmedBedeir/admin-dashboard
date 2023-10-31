@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import "./products.scss";
 import DataTable from "../../components/dataTable/DataTable";
@@ -77,6 +78,13 @@ const columns: GridColDef[] = [
 ];
 const rows = products;
 function Products() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <div className="products">
       <div className="info">
@@ -84,7 +92,12 @@ function Products() {
         <Add slug="Product" columns={columns} />
       </div>
       <div className="dataTable">
-        <DataTable rows={rows} columns={columns} slug="product" />
+        <DataTable
+          loading={loading}
+          rows={rows}
+          columns={columns}
+          slug="product"
+        />
       </div>
     </div>
   );

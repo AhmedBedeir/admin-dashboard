@@ -1,4 +1,5 @@
 import "./users.scss";
+import { useState, useEffect } from "react";
 import DataTable from "../../components/dataTable/DataTable";
 import { userRows } from "../../data";
 import { GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
@@ -87,6 +88,12 @@ const columns: GridColDef[] = [
   },
 ];
 function Users() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   return (
     <div className="users">
       <div className="info">
@@ -94,7 +101,12 @@ function Users() {
         <Add slug="User" columns={columns} />
       </div>
       <div className="dataTable">
-        <DataTable rows={rows} columns={columns} slug="user" />
+        <DataTable
+          loading={loading}
+          rows={rows}
+          columns={columns}
+          slug="user"
+        />
       </div>
     </div>
   );

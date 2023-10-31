@@ -9,9 +9,10 @@ type Props = {
   columns: GridColDef[];
   rows: object[];
   slug: string;
+  loading?: boolean;
 };
 
-export default function DataTable({ columns, rows, slug }: Props) {
+export default function DataTable({ columns, rows, slug, loading }: Props) {
   const action: GridColDef = {
     field: "action",
     headerName: "Action",
@@ -41,6 +42,7 @@ export default function DataTable({ columns, rows, slug }: Props) {
           height: "600px",
         }}
         rowHeight={68}
+        loading={loading}
         rows={rows}
         columns={[...columns, action]}
         initialState={{
