@@ -139,7 +139,7 @@ export const topDealUsers = [
   },
   {
     id: 4,
-    img: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    img: "https://mui.com/static/images/avatar/1.jpg",
     username: "Adeline Watson",
     email: "adeline@gmail.com",
     amount: "2.512",
@@ -342,7 +342,7 @@ export const userRows = [
   },
   {
     id: 4,
-    img: "https://images.pexels.com/photos/871495/pexels-photo-871495.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    img: "https://mui.com/static/images/avatar/2.jpg",
     lastName: "Williamson",
     firstName: "Mildred",
     email: "tinhavabe@gmail.com",

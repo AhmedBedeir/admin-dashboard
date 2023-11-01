@@ -54,34 +54,63 @@ const data = [
   },
 ];
 
-function Single() {
+type Props =
+  | {
+      id: number;
+      img: string;
+      lastName: string;
+      firstName: string;
+      email: string;
+      phone: string;
+      createdAt: string;
+      verified: boolean;
+    }
+  | {
+      id: number;
+      img: string;
+      lastName: string;
+      firstName: string;
+      email: string;
+      phone: string;
+      createdAt: string;
+      verified?: undefined;
+    };
+
+function Single({ targetData, slug }: Props) {
+  console.log(targetData);
+  console.log(slug);
   return (
     <div className="single">
       <div className="view">
         <div className="info">
           <div className="topInfo">
-            <Avatar
-              src="https://mui.com/static/images/avatar/2.jpg"
-              className="avatar"
-            />
-            <h1>Ahmed Bedeir</h1>
+            <Avatar src={targetData?.img} className="avatar" />
+            <h1>
+              {slug === "user"
+                ? `${targetData.firstName} ${targetData.lastName}`
+                : `${targetData.title}`}
+            </h1>
             <Button variant="contained" color="secondary" className="btn">
               Update
             </Button>
           </div>
+
           <div className="detail">
-            <div className="item">
-              <span className="key">ID:</span>
-              <span className="value">1</span>
-            </div>
-            <div className="item">
-              <span className="key">ID:</span>
-              <span className="value">1</span>
-            </div>
-            <div className="item">
-              <span className="key">ID:</span>
-              <span className="value">1</span>
-            </div>
+            {Object.entries(targetData).map(([key, value]) => {
+              if (
+                key === "id" ||
+                key === "img" ||
+                key === "verified" ||
+                key === "inStock"
+              )
+                return null;
+              return (
+                <div key={key} className="item">
+                  <span className="key">{key}:</span>
+                  <span className="value">{value}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
         <hr />
@@ -129,7 +158,7 @@ function Single() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Maiores, perspiciatis.
               </p>
-              <time>2 hours ago</time>
+              <time>1 week ago</time>
             </div>
           </li>
           <li>
@@ -138,7 +167,16 @@ function Single() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Maiores, perspiciatis.
               </p>
-              <time>2 hours ago</time>
+              <time>5 hours ago</time>
+            </div>
+          </li>
+          <li>
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Maiores, perspiciatis.
+              </p>
+              <time>1 month ago</time>
             </div>
           </li>
         </ul>
