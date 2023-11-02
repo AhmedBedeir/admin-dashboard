@@ -1,10 +1,11 @@
+@import "../../styles//responsive.scss";
 
-.nav{
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  .logo{
+  .logo {
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -14,11 +15,16 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    .user{
+    .icon {
+      @include sm {
+        display: none;
+      }
+    }
+    .user {
       display: flex;
       align-items: center;
       gap: 10px;
-      img{
+      img {
         width: 26px;
         height: 26px;
         border-radius: 50%;
