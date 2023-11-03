@@ -1,5 +1,5 @@
 import Single from "../../components/single/Single";
-import "./Product.scss";
+import "./product.scss";
 import { products } from "../../data";
 import { useParams } from "react-router-dom";
 
