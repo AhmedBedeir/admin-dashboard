@@ -54,41 +54,49 @@ const data = [
   },
 ];
 
-type Props =
-  | {
-      id: number;
-      img: string;
-      lastName: string;
-      firstName: string;
-      email: string;
-      phone: string;
-      createdAt: string;
-      verified: boolean;
-    }
-  | {
-      id: number;
-      img: string;
-      lastName: string;
-      firstName: string;
-      email: string;
-      phone: string;
-      createdAt: string;
-      verified?: undefined;
-    };
+type TargetDataUser = {
+  id: number;
+  img: string;
+  lastName: string;
+  firstName: string;
+  email: string;
+  phone: string;
+  createdAt: string;
+  verified?: boolean | string;
+};
+
+type TargetProduct = {
+  id: number;
+  img: string;
+  title: string;
+  color: string;
+  producer: string;
+  price: string;
+  createdAt: string;
+  inStock: boolean | null;
+};
+
+type TargetData = TargetDataUser | TargetProduct;
+type Props = {
+  targetData: TargetData;
+  slug: string;
+};
 
 function Single({ targetData, slug }: Props) {
-  console.log(targetData);
-  console.log(slug);
+  const typedTargetData = targetData as TargetDataUser | TargetProduct;
+
   return (
     <div className="single">
       <div className="view">
         <div className="info">
           <div className="topInfo">
-            <Avatar src={targetData?.img} className="avatar" />
+            <Avatar src={typedTargetData?.img} className="avatar" />
             <h1>
               {slug === "user"
-                ? `${targetData.firstName} ${targetData.lastName}`
-                : `${targetData.title}`}
+                ? `${(typedTargetData as TargetDataUser).firstName} ${
+                    (typedTargetData as TargetDataUser).lastName
+                  }`
+                : `${(typedTargetData as TargetProduct).title}`}
             </h1>
             <Button variant="contained" color="secondary" className="btn">
               Update
@@ -96,7 +104,7 @@ function Single({ targetData, slug }: Props) {
           </div>
 
           <div className="detail">
-            {Object.entries(targetData).map(([key, value]) => {
+            {Object.entries(typedTargetData).map(([key, value]) => {
               if (
                 key === "id" ||
                 key === "img" ||
