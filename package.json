@@ -1,6 +1,7 @@
 {
   "name": "admin_dashboard",
   "private": true,
+  "homepage": "https://ahmedbedeir.github.io/admin-dashboard/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
