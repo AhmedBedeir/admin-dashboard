@@ -40,7 +40,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/admin-dashboard/",
+    basename: import.meta.env.DEV ? "/" : "/admin-dashboard/",
   }
 );
 function App() {
